@@ -10,6 +10,7 @@ const NumberWidget = ({ title, subtitle, api }) => {
             setData(res.data.pokemon_species_details.length); // putting this here for simplicity, but if we'll have different clients, we can put the parser elsewhere
         } catch (err) {
             console.log('Suppressed error', err);
+            setData('Did not load properly...');
         }
     }, [api]);
 

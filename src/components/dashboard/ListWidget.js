@@ -10,6 +10,7 @@ const ListWidget = ({ title, subtitle, api }) => {
             setData(res.data.results.map(({ name }) => name)); // putting this here for simplicity, but if we'll have different clients, we can put the parser elsewhere
         } catch (err) {
             console.log('Suppressed error', err);
+            setData('Did not load properly...');
         }
     }, [api]);
 
@@ -23,7 +24,7 @@ const ListWidget = ({ title, subtitle, api }) => {
             {subtitle && (
                 <h5>{subtitle}</h5>
             )}
-            {data && (
+            {data && Array.isArray(data) && (
                 <ul>
                     {data.map((name) => (
                         <li key={name}>{name}</li>
