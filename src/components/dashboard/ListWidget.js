@@ -2,12 +2,12 @@ import axios from "axios";
 import { useCallback, useEffect, useState } from "react";
 
 const ListWidget = ({ title, subtitle, api }) => {
-    const [response, setResponse] = useState();
+    const [data, setData] = useState();
 
     const fetchApi = useCallback(async () => {
         try {
             const res = await axios.get(api);
-            setResponse(res.data);
+            setData(res.data.results.map(({ name }) => name)); // putting this here for simplicity, but if we'll have different clients, we can put the parser elsewhere
         } catch (err) {
             console.log('Suppressed error', err);
         }
@@ -18,11 +18,17 @@ const ListWidget = ({ title, subtitle, api }) => {
     }, [fetchApi]);
 
     return (
-        <div>
+        <div className="widget">
             <h3>{title}</h3>
-            <h6>{subtitle}</h6>
-            {response && (
-                <div>{JSON.stringify(response)}</div>
+            {subtitle && (
+                <h5>{subtitle}</h5>
+            )}
+            {data && (
+                <ul>
+                    {data.map((name) => (
+                        <li key={name}>{name}</li>
+                    ))}
+                </ul>
             )}
         </div>
     )

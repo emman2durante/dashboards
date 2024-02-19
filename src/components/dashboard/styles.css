@@ -1,0 +1,25 @@
+.widget {
+    height:auto;
+    border-radius: 2px;
+    box-shadow: 1px 4px 10px 1px #c7c7c7;
+    border: 1px solid lightgray;
+    padding: 20px;
+    margin: 0px 10px;
+    height: 100%;
+    min-width: 200px;
+    min-height: 200px;
+    box-sizing: border-box;
+}
+.widget h3 {
+    margin: 0px;
+}
+.column {
+    margin: 10px 20px;
+}
+.column-body {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: flex-start;
+    row-gap: 15px;
+}

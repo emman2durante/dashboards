@@ -1,23 +1,38 @@
 "use client"
 
+import Image from "next/image";
 import Column from "@/components/dashboard/Column";
-import { client } from "@/config/clients";
+import { clientLogo, clients } from "@/config/clients";
 import { configuration } from "@/config/configuration";
 
+export default function Dashboard() {
+    const client = 'pokemon';
 
-export default function Dashboard () {
     return (
         <div>
-            <h1>{client}</h1>
-            <hr />
-            {configuration[client].columns.map((col) => (
-                <Column
-                    key={col.heading}
-                    heading={col.heading}
-                    size={col.size}
-                    widgets={col.widgets}
+            <div style={{ display: 'flex', alignItems: 'center'}}>
+                <Image
+                    src={clientLogo[client]}
+                    alt="client logo"
+                    width={24}
+                    height={24}
+                    style={{
+                        marginRight: 10,
+                    }}
                 />
-            ))}
+                <h2>{clients[client]}</h2>
+            </div>
+            <hr />
+            <div style={{ display: 'flex' }}>
+                {configuration[client].columns.map((col) => (
+                    <Column
+                        key={col.heading}
+                        heading={col.heading}
+                        size={col.size}
+                        widgets={col.widgets}
+                    />
+                ))}
+            </div>
         </div>
     )
 }

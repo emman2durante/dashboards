@@ -1,6 +1,7 @@
+import { clients } from "./clients";
 
 export const configuration = {
-    "pokemon": {
+    [clients.pokemon]: {
         columns: [
             { // First column
                 size: 1, // The size of the column
