@@ -5,6 +5,7 @@ import Column from "@/components/dashboard/Column";
 import { clientLogo, clients } from "@/config/clients";
 import { configuration } from "@/config/configuration";
 
+// Didn't bother to create routing since this is only 1 page
 export default function Dashboard() {
     const client = 'pokemon';
 

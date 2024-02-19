@@ -19,7 +19,7 @@ const NumberWidget = ({ title, subtitle, api }) => {
     }, [fetchApi]);
 
     return (
-        <div className="widget">
+        <div className="widget" data-testid="widget">
             <h3>{title}</h3>
             {subtitle && (
                 <h5>{subtitle}</h5>

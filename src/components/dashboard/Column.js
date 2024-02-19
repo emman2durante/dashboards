@@ -5,7 +5,7 @@ const Column = ({ size, heading, widgets }) => {
     return (
         // Not sure if this is the `size` for since requirements doesn't state it
         <div className="column">
-            <h5>{heading}</h5>
+            <h5 data-testid="column-title">{heading}</h5>
             <hr />
             <div className="column-body">
                 {widgets.map((widget) => (
